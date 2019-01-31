@@ -940,7 +940,9 @@ dependencies = [
  "parking_lot 0.7.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "ra_arena 0.1.0",
  "ra_db 0.1.0",
+ "ra_mbe 0.1.0",
  "ra_syntax 0.1.0",
+ "ra_tt 0.1.0",
  "relative-path 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "rustc-hash 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "test_utils 0.1.0",
@@ -1018,6 +1020,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "ra_mbe"
+version = "0.1.0"
+dependencies = [
+ "ra_syntax 0.1.0",
+ "ra_tt 0.1.0",
+ "rustc-hash 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
 name = "ra_syntax"
 version = "0.1.0"
 dependencies = [
@@ -1041,6 +1052,13 @@ dependencies = [
  "proptest 0.8.7 (registry+https://github.com/rust-lang/crates.io-index)",
  "test_utils 0.1.0",
  "text_unit 0.1.6 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "ra_tt"
+version = "0.1.0"
+dependencies = [
+ "smol_str 0.1.9 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
