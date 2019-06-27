@@ -335,6 +335,16 @@ impl<'a, D: HirDatabase> InferenceContext<'a, D> {
                         ),
                         canonicalized,
                     )
+                },
+                Obligation::Projection(pr) => {
+                    let canonicalized = self.canonicalizer().canonicalize_projection(pr.clone());
+                    (
+                        self.db.normalize(
+                            self.resolver.krate().unwrap(),
+                            canonicalized.value.clone(),
+                        ),
+                        canonicalized,
+                    )
                 }
             };
             match solution {

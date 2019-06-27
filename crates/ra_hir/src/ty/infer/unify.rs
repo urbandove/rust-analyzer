@@ -1,7 +1,7 @@
 //! Unification and canonicalization logic.
 
 use crate::db::HirDatabase;
-use crate::ty::{Ty, Canonical, TraitRef, InferTy};
+use crate::ty::{Ty, Canonical, TraitRef, InferTy, ProjectionPredicate};
 use super::InferenceContext;
 
 impl<'a, D: HirDatabase> InferenceContext<'a, D> {
@@ -89,6 +89,10 @@ where
     pub fn canonicalize_ty(mut self, ty: Ty) -> Canonicalized<Ty> {
         let result = self.do_canonicalize_ty(ty);
         self.into_canonicalized(result)
+    }
+
+    pub fn canonicalize_projection(mut self, projection: ProjectionPredicate) -> Canonicalized<ProjectionPredicate> {
+        self.into_canonicalized(projection)
     }
 
     pub fn canonicalize_trait_ref(mut self, trait_ref: TraitRef) -> Canonicalized<TraitRef> {
